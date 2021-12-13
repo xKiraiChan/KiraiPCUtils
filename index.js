@@ -19,7 +19,18 @@ module.exports = class KiraiPCUtils extends Plugin {
       executor: (args) => {
         return {
           send: true,
-          result: require('powercord/webpack').getModule(['getMembers'], false).getMembers(args[0]).map(f => `<@${f.userId}>`).join(""),
+          result: require('powercord/webpack').getModule(['getMembers'], false).getMembers(args[0]).map(f => `<@${f.userId}>`).join("").substring(0, 2000),
+        };
+      },
+    });
+    
+    powercord.api.commands.registerCommand({
+      command: "space-send",
+      description: "Sends a lot of empty space",
+      executor: (args) => {
+        return {
+          send: true,
+          result: "**" + "\n".repeat(1996) + "**",
         };
       },
     });
