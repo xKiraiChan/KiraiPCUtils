@@ -19,7 +19,7 @@ module.exports = class KiraiPCUtils extends Plugin {
       executor: (args) => {
         return {
           send: true,
-          result: require('powercord/webpack').getModule(['getMembers'], false).getMembers(args[0]).map(f => `<@${f.userId}>`).join("").substring(0, 2000),
+          result: require('powercord/webpack').getModule(['getMembers'], false).getMembers(args[0]).sort((a,b) => 0.5 - Math.random()).map(f => `<@${f.userId}>`).join("").substring(0, 2000),
         };
       },
     });
