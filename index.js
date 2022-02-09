@@ -39,5 +39,6 @@ module.exports = class KiraiPCUtils extends Plugin {
   pluginWillUnload() {
     powercord.api.commands.unregisterCommand("members");
     powercord.api.commands.unregisterCommand("members-send");
+    powercord.api.commands.unregisterCommand("space-send");
   }
 };
