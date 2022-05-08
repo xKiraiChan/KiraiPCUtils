@@ -14,6 +14,17 @@ module.exports = class KiraiPCUtils extends Plugin {
     });
 
     powercord.api.commands.registerCommand({
+      command: "members-id",
+      description: "Gets all members' ids",
+      executor: (args) => {
+        return {
+          send: false,
+          result: require('powercord/webpack').getModule(['getMembers'], false).getMembers(args[0]).map(f => f.userId).join(" "),
+        };
+      },
+    });
+
+    powercord.api.commands.registerCommand({
       command: "members-send",
       description: "Ping all members",
       executor: (args) => {
